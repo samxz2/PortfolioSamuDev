@@ -43,7 +43,7 @@ export default function Contact() {
     <section id="contactame" className="section-padding px-4 relative overflow-hidden bg-zinc-950/50">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(56,189,248,0.02)_0%,transparent_60%)]" />
-      <div className="orb orb-1" style={{ width: 300, height: 300, top: "-15%", right: "-5%" }} />
+      <div className="orb orb-1" style={{ top: "-15%", right: "-5%" }} />
 
       <motion.div
         className="max-w-xl mx-auto relative"
@@ -54,7 +54,7 @@ export default function Contact() {
       >
         <motion.div variants={fadeUp} className="text-center mb-14">
           <span className="section-label">{t("contact.label")}</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             {t("contact.title").split("<gradient>").map((part, i) =>
               i % 2 === 0 ? part : <span key={i} className="text-gradient">{part}</span>
             )}
@@ -66,7 +66,7 @@ export default function Contact() {
 
         <motion.div variants={fadeUp}>
           <form onSubmit={handleSubmit} action="https://formspree.io/f/xeepekrg" method="POST" className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="name"

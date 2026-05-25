@@ -33,7 +33,7 @@ export default function Projects() {
     <section id="proyectos" className="section-padding px-4 relative bg-surface">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.02)_0%,transparent_60%)]" />
-      <div className="orb orb-3" style={{ width: 350, height: 350, top: "auto", bottom: "-10%", right: "-10%" }} />
+      <div className="orb orb-3" style={{ top: "auto", bottom: "-10%", right: "-10%" }} />
 
       <div className="max-w-5xl mx-auto relative">
         <motion.div
@@ -44,7 +44,7 @@ export default function Projects() {
           className="text-center mb-14"
         >
           <span className="section-label">{t("projects.label")}</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             {t("projects.title").split("<gradient>").map((part, i) =>
               i % 2 === 0 ? part : <span key={i} className="text-gradient">{part}</span>
             )}

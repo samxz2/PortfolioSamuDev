@@ -40,7 +40,7 @@ export default function Technologies() {
     <section id="tecnologias" className="section-padding px-4 relative overflow-hidden bg-zinc-950/50">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.02)_0%,transparent_60%)]" />
-      <div className="orb orb-2" style={{ width: 300, height: 300, bottom: "auto", left: "auto", top: "0%", right: "-5%" }} />
+      <div className="orb orb-2" style={{ bottom: "auto", left: "auto", top: "0%", right: "-5%" }} />
 
       <div className="max-w-5xl mx-auto relative">
         <motion.div
@@ -51,7 +51,7 @@ export default function Technologies() {
           className="text-center mb-14"
         >
           <span className="section-label">{t("tech.label")}</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             {t("tech.title").split("<gradient>").map((part, i) =>
               i % 2 === 0 ? part : <span key={i} className="text-gradient">{part}</span>
             )}

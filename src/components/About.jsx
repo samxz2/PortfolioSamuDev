@@ -23,7 +23,7 @@ export default function About() {
     <section id="sobre-mi" className="section-padding px-4 relative overflow-hidden bg-surface">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(56,189,248,0.03)_0%,transparent_60%)]" />
-      <div className="orb orb-1" style={{ width: 300, height: 300, top: "auto", right: "auto", bottom: "-10%", left: "-10%" }} />
+      <div className="orb orb-1" style={{ top: "auto", right: "auto", bottom: "-10%", left: "-10%" }} />
 
       <motion.div
         className="max-w-5xl mx-auto relative"
@@ -34,7 +34,7 @@ export default function About() {
       >
         <motion.div variants={fadeUp} className="text-center mb-16">
           <span className="section-label">{t("about.label")}</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             {t("about.title").split("<gradient>").map((part, i) =>
               i % 2 === 0 ? part : <span key={i} className="text-gradient">{part}</span>
             )}

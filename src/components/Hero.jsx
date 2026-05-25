@@ -27,11 +27,11 @@ export default function Hero() {
       <div className="orb orb-2" />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-16 h-16 rounded-full border border-accent/10 float" />
-        <div className="absolute top-[30%] right-[15%] w-10 h-10 rounded-full border border-accent/10 float-delay-1" />
+        <div className="absolute top-[20%] left-[10%] w-16 h-16 rounded-full border border-accent/10 float hidden sm:block" />
+        <div className="absolute top-[30%] right-[15%] w-10 h-10 rounded-full border border-accent/10 float-delay-1 hidden sm:block" />
         <div className="absolute bottom-[25%] left-[20%] w-12 h-12 rounded-full bg-accent/5 pulse-glow" />
 
-        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-accent/5 spin-slow" />
+        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-accent/5 spin-slow hidden sm:block" />
       </div>
 
       <motion.div
@@ -47,7 +47,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1 custom={1} variants={fadeUp} className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold mb-5 tracking-tight leading-none">
+        <motion.h1 custom={1} variants={fadeUp} className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold mb-5 tracking-tight leading-none">
           Samu<span className="text-gradient">Dev</span>
         </motion.h1>
 
@@ -57,21 +57,21 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        <motion.p custom={3} variants={fadeUp} className="text-zinc-400 text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
+          <motion.p custom={3} variants={fadeUp} className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed">
           {t("hero.description")}
         </motion.p>
 
         <motion.div custom={4} variants={fadeUp} className="flex gap-4 justify-center flex-wrap">
           <a
             href="#proyectos"
-            className="btn-shine group px-7 py-3.5 bg-accent text-black font-semibold rounded-xl hover:shadow-[0_0_40px_rgba(56,189,248,0.25)] hover:shadow-accent/20 transition-all duration-300 flex items-center gap-2"
+            className="btn-shine group w-full sm:w-auto px-7 py-3.5 bg-accent text-black font-semibold rounded-xl hover:shadow-[0_0_40px_rgba(56,189,248,0.25)] hover:shadow-accent/20 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <Code2 size={17} />
             <span>{t("hero.ctaProjects")}</span>
           </a>
           <a
             href="#contactame"
-            className="px-7 py-3.5 glass-card rounded-xl text-zinc-300 hover:text-white hover:border-accent/20 flex items-center gap-2"
+            className="w-full sm:w-auto px-7 py-3.5 glass-card rounded-xl text-zinc-300 hover:text-white hover:border-accent/20 flex items-center justify-center gap-2"
           >
             <MousePointerClick size={17} />
             <span>{t("hero.ctaContact")}</span>
