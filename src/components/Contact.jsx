@@ -17,10 +17,26 @@ export default function Contact() {
   const { t } = useTranslation();
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setSending(true);
+    const form = e.target;
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+        setTimeout(() => setSent(false), 4000);
+      }
+    } catch {}
+    setSending(false);
   };
 
   return (
@@ -49,32 +65,40 @@ export default function Contact() {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} action="https://formspree.io/f/xeepekrg" method="POST" className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
+                name="name"
                 placeholder={t("contact.name")}
                 className="w-full px-4 py-3.5 glass-card rounded-xl text-white placeholder-zinc-600 outline-none input-glow transition-all duration-300"
+                required
               />
               <input
                 type="email"
+                name="email"
                 placeholder={t("contact.email")}
                 className="w-full px-4 py-3.5 glass-card rounded-xl text-white placeholder-zinc-600 outline-none input-glow transition-all duration-300"
+                required
               />
             </div>
             <input
               type="text"
+              name="subject"
               placeholder={t("contact.subject")}
               className="w-full px-4 py-3.5 glass-card rounded-xl text-white placeholder-zinc-600 outline-none input-glow transition-all duration-300"
             />
             <textarea
+              name="message"
               rows={4}
               placeholder={t("contact.message")}
               className="w-full px-4 py-3.5 glass-card rounded-xl text-white placeholder-zinc-600 outline-none input-glow transition-all duration-300 resize-none"
+              required
             />
             <button
               type="submit"
-              className="btn-shine w-full py-3.5 bg-accent text-black font-semibold rounded-xl hover:shadow-[0_0_40px_rgba(56,189,248,0.2)] transition-all duration-300 flex items-center justify-center gap-2 group"
+              disabled={sending}
+              className="btn-shine w-full py-3.5 bg-accent text-black font-semibold rounded-xl hover:shadow-[0_0_40px_rgba(56,189,248,0.2)] transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-60"
             >
               {sent ? (
                 <motion.span
@@ -88,7 +112,7 @@ export default function Contact() {
               ) : (
                 <>
                   <Send size={16} />
-                  {t("contact.send")}
+                  {sending ? "..." : t("contact.send")}
                 </>
               )}
             </button>
